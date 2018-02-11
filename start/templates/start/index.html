@@ -1,39 +1,59 @@
-{% load static %}
-<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="zh-CN">
 
-<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="{% static 'start/style.css' %}" />
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script> {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'start/style.css' %}" />
+</head>
+
+<body>
 
 
-<h2 class="sub-header">Latest Question</h2>
-{% if latest_question_list %}
-<div class="table-responsive">
-    <table class="table table-striped">
-            <thead>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+
+        <h2 class="sub-header">Latest Question</h2>
+        {% if latest_question_list %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Question</th>
-                      <th>Publish Date</th>
+                        <th>ID</th>
+                        <th>Question</th>
+                        <th>Publish Date</th>
                     </tr>
-                  </thead>
-    <tbody>
-    {% for question in latest_question_list %}
-    <tr>
-        <td>{{question.id}}</td>
-        <td><a href="{% url 'start:detail' question.id  %} ">{{ question.question_text  }} </a></td>
-        <td>{{question.pub_date}}</td>
-   </tr>
-    {% endfor %}
-    </tbody>
-    </table>
-</div>
-{% else %}
-    <p>No polls are avaliable.</p>
-{% endif %}
-</div>
+                </thead>
+                <tbody>
+                    {% for question in latest_question_list %}
+                    <tr>
+                        <td>{{question.id}}</td>
+                        <td>
+                            <a href="{% url 'start:detail' question.id  %} ">{{ question.question_text }} </a>
+                        </td>
+                        <td>{{question.pub_date}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p>No polls are avaliable.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
