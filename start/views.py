@@ -68,40 +68,9 @@ def addapi(request):
     ause.save()
     result = {}
     for k in dataDict['data']:
-        # auserdata = UserDataModel2()
-        # auserdata.av = 'av'
-        # auserdata.an = 'an'
-        # auserdata.ec = 'ec'
-        # auserdata.rsd = 'rsd'
-        # auserdata.scsd = 'scsd'
-        # auserdata.ecd = 'ecd'
-        # auserdata.nt = 'nt'
-        # auserdata.rft = 'rft'
-        # auserdata.i10 = 'i10'
-        # auserdata.sced = 'sced'
-        # auserdata.iuf = 'iuf'
-        # auserdata.red = 'red'
-        # auserdata.fsd = 'fsd'
-        # auserdata.spsd = 'spsd'
-        # auserdata.dlsd = 'dlsd'
-        # auserdata.sped = 'sped'
-        # auserdata.dz = 'dz'
-        # auserdata.pi = 'pi'
-        # auserdata.rt = 'rt'
-        # auserdata.rc = 'rc'
-        # auserdata.dled = 'dled'
-        # auserdata.csd = 'csd'
-        # auserdata.re = 're'
-        # auserdata.at = 'at'
-        # auserdata.npn = 'npn'
-        # auserdata.pc = 'pc'
-        # auserdata.ced = 'ced'
-        # auserdata.cp = 'cp'
-        # auserdata2 = UserDataModel2.objects.get(pk=1)
-        ause2 = UserModel2.objects.get(pk=1)
-        ause2.userdatamodel2_set.create(av = 'av',an = 'an',ec = 'ec',rsd = 'rsd',scsd = 'scsd',ecd = 'ecd',nt = 'nt',rft = 'rft',i10 = 'i10',sced = 'sced',iuf = 'iuf',red = 'red',fsd = 'fsd',spsd = 'spsd',dlsd = 'dlsd',sped = 'sped',dz = 'dz',pi = 'pi',rt = 'rt',rc = 'rc',dled = 'dled',csd = 'csd',re = 're',at = 'at',npn = 'npn',pc = 'pc',ced = 'ced',cp = 'cp')
-        # auserdata.save()
-        ause2.save()
+        # ause2 = UserModel2.objects.get(pk=1)
+        ause.userdatamodel2_set.create(av = k['av'],an = k['an'],ec = k['ec'],rsd = k['rsd'],scsd = k['scsd'],ecd = k['ecd'],nt = k['nt'],rft = k['rft'],i10 = k['i10'],sced = k['sced'],iuf = k['iuf'],red = k['red'],fsd = k['fsd'],spsd = k['spsd'],dlsd = k['dlsd'],sped = k['sped'],dz = k['dz'],pi = k['pi'],rt = k['rt'],rc = k['rc'],dled = k['dled'],csd = k['csd'],re = k['re'],at = k['at'],npn = k['npn'],pc = k['pc'],ced = k['ced'],cp = k['cp'])
+        ause.save()
     
     return Response(json.dumps(result), content_type='application/json')
 
