@@ -67,10 +67,39 @@ def addapi(request):
     ause.mn = dataDict['mn']
     ause.save()
     result = {}
+
     for k in dataDict['data']:
-        # ause2 = UserModel2.objects.get(pk=1)
-        ause.userdatamodel2_set.create(av = k['av'],an = k['an'],ec = k['ec'],rsd = k['rsd'],scsd = k['scsd'],ecd = k['ecd'],nt = k['nt'],rft = k['rft'],i10 = k['i10'],sced = k['sced'],iuf = k['iuf'],red = k['red'],fsd = k['fsd'],spsd = k['spsd'],dlsd = k['dlsd'],sped = k['sped'],dz = k['dz'],pi = k['pi'],rt = k['rt'],rc = k['rc'],dled = k['dled'],csd = k['csd'],re = k['re'],at = k['at'],npn = k['npn'],pc = k['pc'],ced = k['ced'],cp = k['cp'])
-        ause.save()
+        model2 = UserDataModel2()
+        model2.av = k['av']
+        model2.an = k['an']
+        model2.ec = k['ec']
+        model2.rsd = k['rsd']
+        model2.scsd = k['scsd']
+        model2.ecd = k['ecd']
+        model2.nt = k['nt']
+        model2.rft = k['rft']
+        model2.i10 = k['i10']
+        model2.sced = k['sced']
+        model2.iuf = k['iuf']
+        model2.red = k['red']
+        model2.fsd = k['fsd']
+        model2.spsd = k['spsd']
+        model2.dlsd = k['dlsd']
+        model2.sped = k['sped']
+        model2.dz = k['dz']
+        model2.pi = k['pi']
+        model2.rt = k['rt']
+        model2.rc = k['rc']
+        model2.dled = k['dled']
+        model2.csd = k['csd']
+        model2.re = k['re']
+        model2.at = k['at']
+        model2.npn = k['npn']
+        model2.pc = k['pc']
+        model2.ced = k['ced']
+        model2.cp = k['cp']
+        model2.usermodel = ause
+        model2.save()
     
     return Response(json.dumps(result), content_type='application/json')
 
