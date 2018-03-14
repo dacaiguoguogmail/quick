@@ -11,7 +11,7 @@ class Question(models.Model):
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
         #return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
-    question_text = models.CharField(max_length=200)
+    question_text = models.CharField(max_length=200, blank=True)
     pub_date = models.DateTimeField('date published')
 
 
@@ -20,23 +20,23 @@ class Choice(models.Model):
         return self.choice_text
 
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
+    choice_text = models.CharField(max_length=200, blank=True)
     votes = models.IntegerField(default=0)
 
 
 class UserModel2(models.Model):
     def __str__(self):
         return self.dt
-    lo = models.CharField(max_length=200)
-    prov = models.CharField(max_length=200)
-    dt = models.CharField(max_length=200)
-    tec = models.CharField(max_length=200)
-    ct = models.CharField(max_length=200)
-    ui = models.CharField(max_length=200)
-    ns = models.CharField(max_length=200)
-    ver = models.CharField(max_length=200)
-    ot = models.CharField(max_length=200)
-    mn = models.CharField(max_length=200)
+    lo = models.CharField(max_length=200, blank=True)
+    prov = models.CharField(max_length=200, blank=True)
+    dt = models.CharField(max_length=200, blank=True)
+    tec = models.CharField(max_length=200, blank=True)
+    ct = models.CharField(max_length=200, blank=True)
+    ui = models.CharField(max_length=200, blank=True)
+    ns = models.CharField(max_length=200, blank=True)
+    ver = models.CharField(max_length=200, blank=True)
+    ot = models.CharField(max_length=200, blank=True)
+    mn = models.CharField(max_length=200, blank=True)
 
 
 class UserDataModel2(models.Model):
