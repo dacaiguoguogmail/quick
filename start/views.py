@@ -35,6 +35,11 @@ class UUIDView(generic.DetailView):
     template_name = 'start/uuid.html'
 
 
+def numberview(request, mn):
+    user = UserModel2.objects.filter(mn=mn)
+    return render(request, 'start/number.html', {'usermodel2_list': user, "number2": mn})
+
+
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:

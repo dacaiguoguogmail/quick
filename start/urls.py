@@ -8,8 +8,8 @@ urlpatterns = [
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
     path('<int:question_id>/vote/', views.vote, name='vote'),
-    path('<int:pk>/uuid/', views.UUIDView.as_view(), name='uuid'),
-    path('<int:pk>/uuid/results', views.UUIDView.as_view(), name='uuidresults'),
+    path('uuid/<int:pk>/', views.UUIDView.as_view(), name='uuid'),
+    path('uuidmn/<int:mn>/', views.numberview, name='uuidmn'),
     path('addapi', views.addapi, name='addapi'),
 ]
 # from django.urls import path
