@@ -28,6 +28,7 @@ class UserModel2(models.Model):
     def __str__(self):
         return self.dt
     lo = models.CharField(max_length=200, blank=True)
+    la = models.CharField(max_length=200, blank=True)
     prov = models.CharField(max_length=200, blank=True)
     dt = models.CharField(max_length=200, blank=True)
     tec = models.CharField(max_length=200, blank=True)
@@ -41,8 +42,7 @@ class UserModel2(models.Model):
 
 class UserDataModel2(models.Model):
     def __str__(self):
-        return self.av
-    
+        return self.av    
     usermodel = models.ForeignKey(UserModel2, on_delete=models.CASCADE)
     av = models.CharField(max_length=200, blank=True)
     an = models.CharField(max_length=200, blank=True)

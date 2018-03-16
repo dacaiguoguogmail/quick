@@ -30,6 +30,10 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = 'start/results.html'
 
+class UUIDView(generic.DetailView):
+    model = UserModel2
+    template_name = 'start/uuid.html'
+
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
@@ -46,6 +50,7 @@ def vote(request, question_id):
         selected_choice.save()
         return HttpResponseRedirect(reverse('start:results', args=(question.id,)))
 
+
 #    return HttpResponse("You're voting on question %s." % question_id)
 @api_view(['POST', 'HEAD'])
 def addapi(request):
@@ -56,6 +61,7 @@ def addapi(request):
     dataDict = json.loads(orgssjson)
     ause = UserModel2()
     ause.lo = dataDict['lo']
+    ause.la = dataDict['la']
     ause.prov = dataDict['prov']
     ause.dt = dataDict['dt']
     ause.tec = dataDict['tec']
