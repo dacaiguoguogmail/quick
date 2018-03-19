@@ -36,8 +36,14 @@ class UUIDView(generic.DetailView):
 
 
 def numberview(request, mn):
-    user = UserModel2.objects.filter(mn=mn)
-    return render(request, 'start/number.html', {'usermodel2_list': user, "number2": mn})
+    user_list = UserModel2.objects.filter(mn=mn)
+    user_list2 = []
+    for oneuser in user_list:
+        allll = oneuser.userdatamodel2_set.all()
+        for aus in allll:
+            user_list2.append({"id":(aus.id), "retime":((aus.red-aus.rsd)*1000)})
+
+    return render(request, 'start/number.html', {'usermodel2_list': user_list2, "number2": mn})
 
 
 def vote(request, question_id):

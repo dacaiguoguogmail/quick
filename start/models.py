@@ -43,32 +43,31 @@ class UserModel2(models.Model):
 class UserDataModel2(models.Model):
     def __str__(self):
         return self.av    
+    i10 = models.BooleanField(default=False)#is >= iOS 10
+    ecd = models.IntegerField(default=0) #error code
+    fsd = models.FloatField(default=0)#fetchStartDate
+    dlsd = models.FloatField(default=0)#domainLookupStartDate
+    dled = models.FloatField(default=0)#domainLookupEndDate
+    csd = models.FloatField(default=0)#connectStartDate
+    scsd = models.FloatField(default=0)#secureConnectionStartDate
+    sced = models.FloatField(default=0)#secureConnectionEndDate
+    ced = models.FloatField(default=0)#connectEndDate
+    rsd = models.FloatField(default=0)#requestStartDate
+    red = models.FloatField(default=0)#requestEndDate
+    rpsd = models.FloatField(default=0)#responseStartDate
+    rped = models.FloatField(default=0)#responseEndDate
+    npn = models.CharField(max_length=19, default="")#networkProtocolName
+    pc = models.BooleanField(default=False)#proxyConnection
+    rc = models.BooleanField(default=False)#reusedConnection
+    rft = models.CharField(max_length=19, default="")#resourceFetchType
+
+    an = models.CharField(max_length=200, blank=True)#(api name)接口名
+    dz = models.CharField(max_length=200, blank=True)#(data size)数据包大小
+    av = models.CharField(max_length=200, blank=True)#(api version)接口版本号 版本号为空传NONE
+    rt = models.CharField(max_length=200, blank=True)#(request type)请求类型 1:POST 2:GET 3:PATCH 4:PUT 5:DELETE 6:其他
+    ec = models.CharField(max_length=200, blank=True)#（error code）接口请求失败对应的异常code放入这边，包括接口异常和HTTP请求异常,如果ec为1则表示请求成功
+    cp = models.CharField(max_length=200, blank=True)#(Custom Parameter) 自定义参数 （接口请求失败对应的异常code放入这边）
+    pi = models.CharField(max_length=200, blank=True)#(page id) 页面编号（该接口属于哪个页面）
     usermodel = models.ForeignKey(UserModel2, on_delete=models.CASCADE)
-    av = models.CharField(max_length=200, blank=True)
-    an = models.CharField(max_length=200, blank=True)
-    ec = models.CharField(max_length=200, blank=True)
-    rsd = models.CharField(max_length=200, blank=True)
-    scsd = models.CharField(max_length=200, blank=True)
-    ecd = models.CharField(max_length=200, blank=True)
-    nt = models.CharField(max_length=200, blank=True)
-    rft = models.CharField(max_length=200, blank=True)
-    i10 = models.CharField(max_length=200, blank=True)
-    sced = models.CharField(max_length=200, blank=True)
-    iuf = models.CharField(max_length=200, blank=True)
-    red = models.CharField(max_length=200, blank=True)
-    fsd = models.CharField(max_length=200, blank=True)
-    spsd = models.CharField(max_length=200, blank=True)
-    dlsd = models.CharField(max_length=200, blank=True)
-    sped = models.CharField(max_length=200, blank=True)
-    dz = models.CharField(max_length=200, blank=True)
-    pi = models.CharField(max_length=200, blank=True)
-    rt = models.CharField(max_length=200, blank=True)
-    rc = models.CharField(max_length=200, blank=True)
-    dled = models.CharField(max_length=200, blank=True)
-    csd = models.CharField(max_length=200, blank=True)
-    re = models.CharField(max_length=200, blank=True)
-    at = models.CharField(max_length=200, blank=True)
-    npn = models.CharField(max_length=200, blank=True)
-    pc = models.CharField(max_length=200, blank=True)
-    ced = models.CharField(max_length=200, blank=True)
-    cp = models.CharField(max_length=200, blank=True)
+
+    

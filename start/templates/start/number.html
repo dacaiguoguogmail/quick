@@ -31,21 +31,23 @@
                                 <thead>
                                         <tr>
                                                 <th>id</th>
-                                                <th>任务开始</th>
-                                                <th>请求开始</th>
-                                                <th>请求结束</th>
+                                                <th>域名解析</th>
+                                                <th>连接建立</th>
+                                                <th>请求耗时</th>
+                                                <th>首包耗时</th>
+                                                <th>响应耗时</th>
                                         </tr>
                                 </thead>
                                 <tbody>
-                                        {% for usermodel2 in usermodel2_list %}
-                                        {% for choice in usermodel2.userdatamodel2_set.all %}
+                                        {% for d2 in usermodel2_list %}
                                         <tr>
-                                                <td>{{ usermodel2.id }}</td>
-                                                <td>{{ choice.fsd }}</td>
-                                                <td>{{ choice.rsd }}</td>
-                                                <td>{{ choice.red }}</td>
+                                                <td>{{ d2.id }}</td>
+                                                <td>{{ d2.retime }}</td>
+                                                <td>{{ d2.retime }}</td>
+                                                <td>{{ d2.retime }}</td>
+                                                <td>{{ d2.retime }}</td>
+                                                <td>{{ d2.retime }}</td>
                                         </tr>
-                                        {% endfor %}
                                         {% endfor %}
                                 </tbody>
                         </table>
